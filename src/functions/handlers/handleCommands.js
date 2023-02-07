@@ -32,8 +32,6 @@ module.exports = (client) => {
       }
     }
 
-    const clientId = process.env.CLIENT_ID;
-
     const rest = new REST({ version: "9" }).setToken(process.env.BOT_TOKEN);
 
     for (var i = 0; i < client.commandArray; i++) {
@@ -42,7 +40,7 @@ module.exports = (client) => {
 
     try {
       console.log("Started refreshing application (/) commands.");
-      await rest.put(Routes.applicationCommands(clientId), {
+      await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
         body: client.commandArray
       });
       console.log("sucessfully reloaded application (/) commands.");
