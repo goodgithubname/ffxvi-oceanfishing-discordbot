@@ -48,7 +48,7 @@ const cron = require("node-cron");
 require("./js_functions/customTime.js");
 const getRoute = require("./js_functions/getRoute.js");
 
-//*/
+//remind users every odd hours
 cron.schedule("0 1-23/2 * * *", () => {
   console.log("Posting Fishing Schedule");
 
@@ -105,7 +105,7 @@ cron.schedule("0 1-23/2 * * *", () => {
     )
     .setImage(imageURL);
 
-  const channel = client.channels.cache.get('1072307201298939914');
+  const channel = client.channels.cache.get(process.env.FISHING_CHANNEL_ID);
   channel.send({ embeds: [Fishembed] })
     .then(msg => {
       setTimeout(() => msg.delete(), 300000)
