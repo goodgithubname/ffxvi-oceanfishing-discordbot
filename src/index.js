@@ -39,7 +39,7 @@ client.handleEvents();
 client.handleCommands();
 client.login(TOKEN);
 
-//Ocean Fishing Timer
+//=================Ocean Fishing Scheduler==============================
 const cron = require("node-cron");
 require("./js_functions/customTime.js");
 const getRoute = require("./js_functions/getRoute.js");

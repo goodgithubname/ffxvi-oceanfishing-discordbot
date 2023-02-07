@@ -11,6 +11,7 @@ module.exports = {
       fetchReply: true,
     });
 
+    //returns API latency and user latency
     const newMessage = `API Latency: ${client.ws.ping}\nClient Ping: ${message.createdTimestamp - interaction.createdTimestamp
       }`;
 

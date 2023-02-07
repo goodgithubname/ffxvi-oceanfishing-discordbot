@@ -14,6 +14,7 @@ module.exports = {
     var status = "";
     const date = new Date();
 
+    //calculate time until next voyage
     var hour;
     if (date.getHours() % 2 == 0) {
       if (date.getMinutes() == 1) {
@@ -36,6 +37,7 @@ module.exports = {
     const fishing_pass = getRoute(date);
     var imageURL = "";
 
+    //images for day, sunset and night for embed visuals
     switch (fishing_pass[1]) {
       case "Day":
         imageURL = "https://cdn.upload.systems/uploads/WvAhcL9l.png";
@@ -49,7 +51,7 @@ module.exports = {
       default:
         break;
     }
-    console.log("creating embeded message");
+    //creating embed message
     const Fishembed = new EmbedBuilder()
       .setColor('FFFF00')
       .setTitle(hour)
@@ -63,6 +65,7 @@ module.exports = {
       )
       .setImage(imageURL);
 
+    //reply's ephemeral set to true to only be visible to the user that initiated the command
     await interaction.reply({
       embeds: [Fishembed],
       ephemeral: true

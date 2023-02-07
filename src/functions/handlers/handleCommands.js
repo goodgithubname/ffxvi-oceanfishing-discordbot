@@ -4,6 +4,8 @@ const fs = require("fs");
 
 module.exports = (client) => {
   client.handleCommands = async () => {
+
+    //search for command files
     const path = require("path");
     const commandPath = path.resolve(__dirname, "../..");
 
@@ -34,6 +36,7 @@ module.exports = (client) => {
 
     const rest = new REST({ version: "9" }).setToken(process.env.BOT_TOKEN);
 
+    //register found commands
     for (var i = 0; i < client.commandArray; i++) {
       console.log(client.commandArray[i]);
     }
