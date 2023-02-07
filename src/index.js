@@ -20,8 +20,6 @@ const client = new Client({
   ],
 });
 
-
-
 client.commands = new Collection();
 client.commandArray = [];
 
@@ -40,8 +38,6 @@ for (const folder of functionFolders) {
 client.handleEvents();
 client.handleCommands();
 client.login(TOKEN);
-
-
 
 //Ocean Fishing Timer
 const cron = require("node-cron");
